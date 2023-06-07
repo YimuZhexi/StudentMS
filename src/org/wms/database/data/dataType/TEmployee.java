@@ -34,6 +34,8 @@ public class TEmployee {
     }
 
     /**
+     * 员工数据初始化
+     *
      * @param employeeID      员工ID varchar(10)PRIMARY KEY
      * @param employeeName    员工名 varchar(10) NOT NULL
      * @param employeeAge     员工年龄 integer

@@ -23,10 +23,11 @@ public class TProvider {
 
     /**
      * 供应商构造
-     * @param providerID 供应商编号
-     * @param providerName 供应商姓名
+     *
+     * @param providerID      供应商编号
+     * @param providerName    供应商姓名
      * @param providerAddress 供应商住址
-     * @param providerEmail 供应商邮箱
+     * @param providerEmail   供应商邮箱
      */
     public TProvider(String providerID, String providerName, String providerAddress, String providerEmail) {
         this.providerID = providerID;
