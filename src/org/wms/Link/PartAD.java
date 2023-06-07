@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 public class PartAD {
     /*判断零件是否重复*/
-    public static boolean havePart(String pName, String pID, Double pPrice, String prID) {
-        var npart = DaoFactory.GetPartDao();
-        ArrayList<TPart> part = npart.GetAllData();
+    public static boolean havePart(String pName, String pID) {
+        var nPart = DaoFactory.GetPartDao();
+        ArrayList<TPart> part = nPart.GetAllData();
 
         for (var w : part) {
             String name = w.partName;
@@ -34,16 +34,14 @@ public class PartAD {
 
     public static boolean havePartDelete(String pID) {
         var oldPart = DaoFactory.GetPartDao();
-        ArrayList<TPart> opart = oldPart.GetAllData();
-
-        for (var w : opart) {
-            String oldID = w.partID;
-            return w.partID.equals(pID);
+        ArrayList<TPart> oPart = oldPart.GetAllData();
+        for (var w : oPart) {
+            if(w.partID.equals(pID))return true;
         }
         return false;
     }
 
-    public static void deletepart(String ID) {
+    public static void deletePart(String ID) {
         var delete = DaoFactory.GetPartDao();
         int flag = delete.DeleteDataByID(ID);
         if (flag == 1) {

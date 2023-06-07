@@ -1,6 +1,6 @@
 package org.wms.Frame;
 
-import org.wms.Link.Waread;
+import org.wms.Link.WareAd;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +9,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 
 public class WareDelete {
-    public WareDelete(){
+    public WareDelete() {
         JFrame frame = new JFrame("删除仓库");
         frame.setSize(450, 200);
         frame.setLocationRelativeTo(null);
@@ -41,39 +41,38 @@ public class WareDelete {
         title.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         title.setForeground(Color.black);
         title.setBounds(120, 10, 600, 40);
-        jp.add(title,JLayeredPane.DRAG_LAYER);
+        jp.add(title, JLayeredPane.DRAG_LAYER);
 
         // 仓库编号
         JLabel WarehouseAddress = new JLabel("仓库编号");
         WarehouseAddress.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         WarehouseAddress.setForeground(Color.black);
         WarehouseAddress.setBounds(100, 63, 120, 30);
-        jp.add(WarehouseAddress,JLayeredPane.DRAG_LAYER);
+        jp.add(WarehouseAddress, JLayeredPane.DRAG_LAYER);
 
         // 仓库名字文本框
         JTextField WarehouseAddressText = new JTextField(10);
         WarehouseAddressText.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         WarehouseAddressText.setBounds(200, 63, 150, 30);
-        jp.add(WarehouseAddressText,JLayeredPane.DRAG_LAYER);
+        jp.add(WarehouseAddressText, JLayeredPane.DRAG_LAYER);
 
         // 删除按钮
         JButton newWareButton = new JButton("确认删除");
         newWareButton.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         newWareButton.setBounds(100, 110, 250, 30);
-        jp.add(newWareButton,JLayeredPane.DRAG_LAYER);
+        jp.add(newWareButton, JLayeredPane.DRAG_LAYER);
 
         // 点击删除按钮
         newWareButton.addActionListener(e -> {
-            //TODO:
-            // 调用判断函数,判断成功则添加新仓库,并且 new Notice("删除成功") 进行弹窗
-            // 判断失败则 new Notice("删除失败,仓库编号不存在")
-            String ID=WarehouseAddressText.getText();
-            String add=WarehouseAddressText.getText();
+            String ID = WarehouseAddressText.getText();
 
-            Waread.deleteWareID(ID);
-            new Notice("通过编号删除仓库成功");
-            Waread.deleteWareAdd(add);
-            new Notice("通过地址删除仓库成功");
+            if (WareAd.haveWare(ID)) {
+                new Notice("仓库不存在");
+
+            } else {
+                WareAd.deleteWareID(ID);
+                new Notice("通过编号删除仓库成功");
+            }
         });
 
         // 使窗口置顶并锁定焦点
@@ -82,6 +81,7 @@ public class WareDelete {
             public void windowGainedFocus(WindowEvent e) {
                 frame.toFront();
             }
+
             @Override
             public void windowLostFocus(WindowEvent e) {
                 frame.toFront();

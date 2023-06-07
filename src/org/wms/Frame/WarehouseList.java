@@ -88,6 +88,7 @@ public class WarehouseList {
                         rowData[i] = tmList.getValueAt(row, i);
                     }
                     String wareID = (String) rowData[0];
+
                     new WarehouseInfo(wareID);
                 }
             }

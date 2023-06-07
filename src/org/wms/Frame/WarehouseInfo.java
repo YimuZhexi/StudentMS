@@ -1,6 +1,6 @@
 package org.wms.Frame;
 
-import org.wms.Link.WareID;
+import org.wms.Link.PartNum;
 import org.wms.database.data.dao.iml.PartDao;
 import org.wms.database.data.dao.iml.PartInWarehouseDao;
 import org.wms.database.data.dataType.TPart;
@@ -53,7 +53,7 @@ public class WarehouseInfo {
         // 获取数据库数据
         ArrayList<TPart> parts = new ArrayList<>();
         var part = new PartInWarehouseDao().GetDataByID(Table.Warehouse.warehouseID, wareID);
-        
+
         System.out.println(wareID);
         for (var item : part) {
             TPart p = new PartDao().GetDataByID(item.partID);
@@ -66,20 +66,20 @@ public class WarehouseInfo {
 
         // 添加数据到表格模型
 
-        /*分别传入仓库和零件编号*/
-        WareID wareID1 = new WareID(wareID);
+        /*分别传入仓库和零件编号*//*
+        WareID wareID1 = new WareID(wareID);*/
 
-        String id;
 
         for (TPart warePart : parts) {
-            id=warePart.partID;
-            tmInfo.addRow(new Object[]{
-                    warePart.partID,
-                    warePart.partName,
-                    warePart.partPrice,
-                    warePart.providerID,
-                    wareID1.getNUM(id)
-            });
+            if (warePart.partID != null) {
+                tmInfo.addRow(new Object[]{
+                        warePart.partID,
+                        warePart.partName,
+                        warePart.partPrice,
+                        warePart.providerID,
+                        PartNum.PartNUM(warePart.partID, wareID)
+                });
+            }
         }
         // 创建表格
         JTable jtInfo = new JTable(tmInfo);

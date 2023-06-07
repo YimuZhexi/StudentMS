@@ -140,7 +140,7 @@ public class PartAdd {
                 new Notice("供应商编号超出范围10");
             }
 
-            if (PartAD.havePart(PartName, PartID, PPrice, PartPrID)) {
+            if (PartAD.havePart(PartName, PartID)) {
                 if (TF) {
                     PartAD.insertPart(PartName, PartID, PPrice, PartPrID);
                     PartUP.UpByHouse(pNum, PartID, wareID);

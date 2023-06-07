@@ -5,20 +5,20 @@ import org.wms.database.data.dataType.TWarehouse;
 
 import java.util.ArrayList;
 
-public class Waread {
+public class WareAd {
 
     /*判断仓库是否已存在*/
-    public static boolean haveWare(String whName, String whID) {
+    public static boolean haveWare( String whID) {
         var ware = DaoFactory.GetWarehouseDao();
         ArrayList<TWarehouse> nw = ware.GetAllData();
 
         for (var w : nw) {
             String ID = w.warehouseID;
             if (whID.equals(ID)) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     /*增加仓库*/
@@ -37,10 +37,5 @@ public class Waread {
     public static void deleteWareID(String ID) {
         var deleteID = DaoFactory.GetWarehouseDao();
         deleteID.DeleteDataByID(ID);
-    }
-
-    public static void deleteWareAdd(String add) {
-        var deleteAdd = DaoFactory.GetWarehouseDao();
-        deleteAdd.DeleteDataByAddress(add);
     }
 }

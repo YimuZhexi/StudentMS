@@ -1,7 +1,7 @@
 package org.wms.Frame;
 
 import org.wms.Link.WareUP;
-import org.wms.Link.Waread;
+import org.wms.Link.WareAd;
 
 import javax.swing.*;
 import java.awt.*;
@@ -110,9 +110,9 @@ public class WareAdd {
             }
 
             /*判断是仓库已有*/
-            if (Waread.haveWare(whName, whID)) {
+            if (WareAd.haveWare(whID)) {
                 if (TF) {
-                    Waread.addWare(whID, whName, whAddress);
+                    WareAd.addWare(whID, whName, whAddress);
                     new Notice("仓库创建成功");
                     frame.dispose();
                     new WarehouseList();

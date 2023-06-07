@@ -69,7 +69,7 @@ public class PartDelete {
             // 判断失败则 new Notice("删除失败,零件编号不存在")
             String PartID = partIDText.getText();
             if (PartAD.havePartDelete(PartID)) {
-                PartAD.deletepart(PartID);
+                PartAD.deletePart(PartID);
                 new Notice("删除成功");
             } else new Notice("删除失败，零件编号不存在");
         });
