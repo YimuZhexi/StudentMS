@@ -15,10 +15,10 @@ public class Waread {
         for (var w : nw) {
             String ID = w.warehouseID;
             if (whID.equals(ID)) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     /*增加仓库*/

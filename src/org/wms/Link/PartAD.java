@@ -2,6 +2,7 @@ package org.wms.Link;
 
 import org.wms.database.data.daoFactory.DaoFactory;
 import org.wms.database.data.dataType.TPart;
+import org.wms.database.data.dataname.Table;
 
 import java.util.ArrayList;
 
@@ -22,10 +23,10 @@ public class PartAD {
     /*上传至数据库*/
     public static void insertPart(String pName, String pID, Double pPrice, String prID) {
         TPart newPart = new TPart();
-        newPart.partID=pID;
-        newPart.partName=pName;
-        newPart.partPrice=pPrice;
-        newPart.providerID=prID;
+        newPart.partID = pID;
+        newPart.partName = pName;
+        newPart.partPrice = pPrice;
+        newPart.providerID = prID;
 
         var update = DaoFactory.GetPartDao();
         update.InsertData(newPart);
@@ -37,13 +38,20 @@ public class PartAD {
 
         for (var w : opart) {
             String oldID = w.partID;
-            return pID.equals(oldID);
+            return w.partID.equals(pID);
         }
         return false;
     }
 
     public static void deletepart(String ID) {
         var delete = DaoFactory.GetPartDao();
-        delete.DeleteDataByID(ID);
+        int flag = delete.DeleteDataByID(ID);
+        if (flag == 1) {
+            var piw = DaoFactory.GetPartInWarehouseDao();
+            var pw = piw.GetDataByID(Table.PartInWarehouse.partID, ID);
+            for (var item : pw) {
+                piw.DeleteByPW(ID, item.warehouseID);
+            }
+        }
     }
 }

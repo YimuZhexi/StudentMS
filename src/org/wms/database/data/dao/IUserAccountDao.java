@@ -47,20 +47,4 @@ public interface IUserAccountDao {
      * @return 成功删除1，失败0
      */
     int DeleteOneLine(String userName);
-
-    /**
-     * 获取总数据量
-     *
-     * @return 包含用户数据数量
-     */
-    int GetCountOfLines();
-
-    /**
-     * 获取某一个数据出现的次数
-     *
-     * @param key   查询的数据名
-     * @param value 查询的值
-     * @return 数量
-     */
-    int GetCountByKey(String key, String value);
 }

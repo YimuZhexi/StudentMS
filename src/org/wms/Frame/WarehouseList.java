@@ -1,6 +1,5 @@
 package org.wms.Frame;
 
-import org.wms.Link.WareID;
 import org.wms.database.data.dao.iml.WarehouseDao;
 import org.wms.database.data.dataType.TWarehouse;
 import org.wms.database.data.dataname.Table;
@@ -14,10 +13,6 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class WarehouseList {
-
-    static String wid;
-
-
     public WarehouseList() {
         // 窗口基本参数
         JFrame frame = new JFrame("仓库管理系统");
@@ -93,7 +88,6 @@ public class WarehouseList {
                         rowData[i] = tmList.getValueAt(row, i);
                     }
                     String wareID = (String) rowData[0];
-                    wid = wareID;
                     new WarehouseInfo(wareID);
                 }
             }
@@ -131,6 +125,5 @@ public class WarehouseList {
 
         frame.add(jp);
         frame.setVisible(true);
-
     }
 }

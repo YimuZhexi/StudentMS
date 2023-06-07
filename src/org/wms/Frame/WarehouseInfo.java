@@ -1,5 +1,6 @@
 package org.wms.Frame;
 
+import org.wms.Link.WareID;
 import org.wms.database.data.dao.iml.PartDao;
 import org.wms.database.data.dao.iml.PartInWarehouseDao;
 import org.wms.database.data.dataType.TPart;
@@ -62,14 +63,22 @@ public class WarehouseInfo {
         // 创建表格模型
         DefaultTableModel tmInfo = new DefaultTableModel();
         tmInfo.setColumnIdentifiers(Table.Part.GetColumnName1()); // 设置列名
+
         // 添加数据到表格模型
+
+        /*分别传入仓库和零件编号*/
+        WareID wareID1 = new WareID(wareID);
+
+        String id;
+
         for (TPart warePart : parts) {
+            id=warePart.partID;
             tmInfo.addRow(new Object[]{
                     warePart.partID,
                     warePart.partName,
                     warePart.partPrice,
-                    warePart.providerID
-
+                    warePart.providerID,
+                    wareID1.getNUM(id)
             });
         }
         // 创建表格
@@ -91,7 +100,7 @@ public class WarehouseInfo {
         jp.add(newPartButton, JLayeredPane.DRAG_LAYER);
 
         // 点击新建零件按钮
-        newPartButton.addActionListener(e -> new PartAdd());
+        newPartButton.addActionListener(e -> new PartAdd(wareID));
 
         // 删除零件按钮
         JButton deletePartButton = new JButton("删除零件");

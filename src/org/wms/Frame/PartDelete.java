@@ -9,7 +9,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 
 public class PartDelete {
-    public  PartDelete(){
+    public PartDelete() {
         JFrame frame = new JFrame("删除零件");
         frame.setSize(450, 200);
         frame.setLocationRelativeTo(null);
@@ -41,26 +41,26 @@ public class PartDelete {
         title.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         title.setForeground(Color.black);
         title.setBounds(120, 10, 600, 40);
-        jp.add(title,JLayeredPane.DRAG_LAYER);
+        jp.add(title, JLayeredPane.DRAG_LAYER);
 
         // 零件编号
         JLabel partID = new JLabel("零件编号");
         partID.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         partID.setForeground(Color.black);
         partID.setBounds(100, 63, 120, 30);
-        jp.add(partID,JLayeredPane.DRAG_LAYER);
+        jp.add(partID, JLayeredPane.DRAG_LAYER);
 
         // 零件编号文本框
         JTextField partIDText = new JTextField(10);
         partIDText.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         partIDText.setBounds(200, 63, 150, 30);
-        jp.add(partIDText,JLayeredPane.DRAG_LAYER);
+        jp.add(partIDText, JLayeredPane.DRAG_LAYER);
 
         // 删除按钮
         JButton deletePartButton = new JButton("确认删除");
         deletePartButton.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         deletePartButton.setBounds(100, 110, 250, 30);
-        jp.add(deletePartButton,JLayeredPane.DRAG_LAYER);
+        jp.add(deletePartButton, JLayeredPane.DRAG_LAYER);
 
         // 点击删除按钮
         deletePartButton.addActionListener(e -> {
@@ -68,9 +68,10 @@ public class PartDelete {
             // 调用判断函数,判断成功则添加新仓库,并且 new Notice("删除成功") 进行弹窗
             // 判断失败则 new Notice("删除失败,零件编号不存在")
             String PartID = partIDText.getText();
-            if (PartAD.havePartDelete(PartID)){
+            if (PartAD.havePartDelete(PartID)) {
                 PartAD.deletepart(PartID);
-            }
+                new Notice("删除成功");
+            } else new Notice("删除失败，零件编号不存在");
         });
 
         // 使窗口置顶并锁定焦点
@@ -79,6 +80,7 @@ public class PartDelete {
             public void windowGainedFocus(WindowEvent e) {
                 frame.toFront();
             }
+
             @Override
             public void windowLostFocus(WindowEvent e) {
                 frame.toFront();
