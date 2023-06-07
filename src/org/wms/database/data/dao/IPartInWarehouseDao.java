@@ -22,15 +22,6 @@ public interface IPartInWarehouseDao {
     ArrayList<TPartInWarehouse> GetDataByID(String IDName, String ID);
 
     /**
-     * 通过零件数量获取仓储数据
-     *
-     * @param partNum 零件数量
-     * @param eq      0：等于；1：大于；-1：小于
-     * @return 仓储数据链 ArrayList<TPartInWarehouse>
-     */
-    ArrayList<TPartInWarehouse> GetDataByPartNum(int partNum, int eq);
-
-    /**
      * 插入一行数据
      *
      * @param partInWarehouse 插入的数据

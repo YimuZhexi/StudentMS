@@ -75,31 +75,6 @@ public class PartInWarehouseDao implements IPartInWarehouseDao {
         return partInWarehouses;
     }
 
-
-    @Override
-    public ArrayList<TPartInWarehouse> GetDataByPartNum(int partNum, int eq) {
-        Connection connection = null;
-        PreparedStatement preparedStatement;
-        ResultSet resultSet;
-        ArrayList<TPartInWarehouse> partInWarehouses = new ArrayList<>();
-        String sql = "SELECT * FROM " + Table.PartInWarehouse.tableName
-                + " WHERE " + Table.PartInWarehouse.partNum + GetEq(eq) + "?;";
-        try {
-            connection = Database.Connect();
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, partNum);
-            resultSet = preparedStatement.executeQuery();
-            SetPartValue(resultSet, partInWarehouses);
-            resultSet.close();
-            preparedStatement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            Database.CloseConnect(connection);
-        }
-        return partInWarehouses;
-    }
-
     /**
      * 获取大小比较运算符号
      *
