@@ -31,7 +31,6 @@ public interface IEmployeeDao {
      */
     ArrayList<TEmployee> GetDataByWarehouse(String warehouseID);
 
-
     /**
      * 通过员工ID修改该员工信息
      *
