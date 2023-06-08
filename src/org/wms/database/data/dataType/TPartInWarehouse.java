@@ -1,5 +1,8 @@
 package org.wms.database.data.dataType;
 
+/**
+ * 仓储数据类
+ */
 public class TPartInWarehouse {
     /**
      * 包含零件数量

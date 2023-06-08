@@ -1,5 +1,8 @@
 package org.wms.database.data.dataType;
 
+/**
+ * 仓库数据类
+ */
 public class TWarehouse {
     /**
      * 仓库编号

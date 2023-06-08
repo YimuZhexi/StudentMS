@@ -11,11 +11,9 @@ public class PartAD {
     public static boolean havePart(String pName, String pID) {
         var nPart = DaoFactory.GetPartDao();
         ArrayList<TPart> part = nPart.GetAllData();
-
+        if (nPart.GetDataByID(pID).partName != null) return false;
         for (var w : part) {
-            String name = w.partName;
-            String ID = w.partID;
-            return !pName.equals(name) && !pID.equals(ID);
+            if (pName.equals(w.partName)) return false;
         }
         return true;
     }
@@ -36,7 +34,7 @@ public class PartAD {
         var oldPart = DaoFactory.GetPartDao();
         ArrayList<TPart> oPart = oldPart.GetAllData();
         for (var w : oPart) {
-            if(w.partID.equals(pID))return true;
+            if (w.partID.equals(pID)) return true;
         }
         return false;
     }

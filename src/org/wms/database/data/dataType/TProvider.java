@@ -1,5 +1,8 @@
 package org.wms.database.data.dataType;
 
+/**
+ * 供应商数据类
+ */
 public class TProvider {
     /**
      * 供应商编号

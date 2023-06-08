@@ -7,7 +7,6 @@ public class User {
     public static boolean NuJudge(String nAccount) {
         var account = DaoFactory.GetUserAccountDao();
         var user=account.GetData(nAccount);
-        System.out.println(user.username);
-        return !user.username.equals(nAccount);
+        return user.username == null;
     }
 }

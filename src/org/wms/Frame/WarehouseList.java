@@ -40,13 +40,12 @@ public class WarehouseList {
         label.setBounds(0, 0, windowWidth, windowHeight);
         jp.add(label, JLayeredPane.DEFAULT_LAYER);
 
-        // 文本基本参数
+        // 标题文本
         JLabel title = new JLabel("您的仓库列表");
         title.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         title.setForeground(Color.black);
-        title.setBounds(320, 20, 150, 30);
-        title.setOpaque(false);
-        jp.setComponentZOrder(title, 0);
+        title.setBounds(320, 20, 600, 30);
+        jp.add(title,JLayeredPane.DRAG_LAYER);
 
         // 创建表格(左侧仓库列表):
         // 获取数据库数据
@@ -72,7 +71,7 @@ public class WarehouseList {
         // 设置表格参数
         JScrollPane listSp = new JScrollPane(jtList);
         listSp.setBounds(30, 70, 740, 400);
-        jp.add(listSp, JLayeredPane.MODAL_LAYER);
+        jp.add(listSp, JLayeredPane.DRAG_LAYER);
 
         // 添加鼠标监听器
         jtList.addMouseListener(new MouseAdapter() {
@@ -97,14 +96,14 @@ public class WarehouseList {
         // 新建仓库按钮
         JButton newWareButton = new JButton("新建仓库");
         newWareButton.setFont(new Font("微软雅黑", Font.PLAIN, 20));
-        newWareButton.setBounds(70, 500, 200, 30);
-        jp.add(newWareButton);
+        newWareButton.setBounds(200, 500, 120, 30);
+        jp.add(newWareButton,JLayeredPane.DRAG_LAYER);
 
         // 刷新按钮
         JButton refreshButton = new JButton("刷新");
         refreshButton.setFont(new Font("微软雅黑", Font.PLAIN, 10));
         refreshButton.setBounds(650, 30, 80, 30);
-        jp.add(refreshButton);
+        jp.add(refreshButton,JLayeredPane.DRAG_LAYER);
 
         // 点击新建仓库按钮
         newWareButton.addActionListener(e -> new WareAdd());
@@ -119,7 +118,7 @@ public class WarehouseList {
         JButton deleteWareButton = new JButton("删除仓库");
         deleteWareButton.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         deleteWareButton.setBounds(500, 500, 120, 30);
-        jp.add(deleteWareButton);
+        jp.add(deleteWareButton,JLayeredPane.DRAG_LAYER);
 
         // 点击删除仓库按钮
         deleteWareButton.addActionListener(e -> new WareDelete());

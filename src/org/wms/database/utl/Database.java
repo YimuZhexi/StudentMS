@@ -2,6 +2,9 @@ package org.wms.database.utl;
 
 import java.sql.*;
 
+/**
+ * 数据库连接类
+ */
 public class Database {
     /**
      * 链接数据库

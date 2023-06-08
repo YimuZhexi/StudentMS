@@ -71,28 +71,10 @@ public class WareDelete {
 
             } else {
                 WareAd.deleteWareID(ID);
+                frame.dispose();
                 new Notice("通过编号删除仓库成功");
             }
         });
-
-        // 使窗口置顶并锁定焦点
-        frame.addWindowFocusListener(new WindowFocusListener() {
-            @Override
-            public void windowGainedFocus(WindowEvent e) {
-                frame.toFront();
-            }
-
-            @Override
-            public void windowLostFocus(WindowEvent e) {
-                frame.toFront();
-            }
-        });
-
-        for (Frame f : Frame.getFrames()) {
-            if (f != frame) {
-                f.setEnabled(false);
-            }
-        }
 
         frame.addWindowListener(new WindowAdapter() {
             @Override

@@ -64,34 +64,13 @@ public class PartDelete {
 
         // 点击删除按钮
         deletePartButton.addActionListener(e -> {
-            //TODO:
-            // 调用判断函数,判断成功则添加新仓库,并且 new Notice("删除成功") 进行弹窗
-            // 判断失败则 new Notice("删除失败,零件编号不存在")
             String PartID = partIDText.getText();
             if (PartAD.havePartDelete(PartID)) {
                 PartAD.deletePart(PartID);
                 new Notice("删除成功");
             } else new Notice("删除失败，零件编号不存在");
+            frame.dispose();
         });
-
-        // 使窗口置顶并锁定焦点
-        frame.addWindowFocusListener(new WindowFocusListener() {
-            @Override
-            public void windowGainedFocus(WindowEvent e) {
-                frame.toFront();
-            }
-
-            @Override
-            public void windowLostFocus(WindowEvent e) {
-                frame.toFront();
-            }
-        });
-
-        for (Frame f : Frame.getFrames()) {
-            if (f != frame) {
-                f.setEnabled(false);
-            }
-        }
 
         frame.addWindowListener(new WindowAdapter() {
             @Override

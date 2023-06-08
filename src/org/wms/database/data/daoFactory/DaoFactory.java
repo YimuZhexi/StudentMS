@@ -2,6 +2,9 @@ package org.wms.database.data.daoFactory;
 
 import org.wms.database.data.dao.iml.*;
 
+/**
+ * 简单Dao工厂
+ */
 public class DaoFactory {
     /**
      * 获取账户操作类

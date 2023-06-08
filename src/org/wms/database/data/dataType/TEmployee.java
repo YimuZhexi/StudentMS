@@ -1,5 +1,8 @@
 package org.wms.database.data.dataType;
 
+/**
+ * 员工数据类
+ */
 public class TEmployee {
     /**
      * 员工编号

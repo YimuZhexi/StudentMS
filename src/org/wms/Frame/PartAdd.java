@@ -114,9 +114,6 @@ public class PartAdd {
 
         // 点击已有账户
         newPartButton.addActionListener(e -> {
-            //TODO:
-            // 调用判断函数,判断成功则添加新仓库,并且 new Notice("新建成功") 进行弹窗
-            // 判断失败则 new Notice("新建失败,零件编号和零件名不能和已有零件相同")
             String PartID = partIDText.getText();
             String PartPrID = partProviderIDText.getText();
             String PartPrice = partPriceText.getText();
@@ -140,16 +137,15 @@ public class PartAdd {
                 new Notice("供应商编号超出范围10");
             }
 
-            if (PartAD.havePart(PartName, PartID)) {
-                if (TF) {
-                    PartAD.insertPart(PartName, PartID, PPrice, PartPrID);
-                    PartUP.UpByHouse(pNum, PartID, wareID);
-                    new Notice("上传数据库成功");
-                    frame.dispose();
-                } else {
-                    new Notice("上传失败");
-                }
+            if (TF && PartAD.havePart(PartName, PartID)) {
+                PartAD.insertPart(PartName, PartID, PPrice, PartPrID);
+                PartUP.UpByHouse(pNum, PartID, wareID);
+                new Notice("上传数据库成功");
+            } else {
+                new Notice("上传失败");
             }
+            frame.dispose();
+
         });
 
         frame.add(jp);

@@ -6,8 +6,8 @@ import org.wms.database.data.dao.iml.UserAccountDao;
 import javax.swing.*;
 import java.awt.*;
 
-public class Welcome extends JFrame{
-    public Welcome(){
+public class Welcome extends JFrame {
+    public Welcome() {
         JFrame frame = new JFrame("仓库管理系统");
         frame.setSize(600, 400);
         frame.setLocationRelativeTo(null);
@@ -39,45 +39,45 @@ public class Welcome extends JFrame{
         title.setFont(new Font("微软雅黑", Font.PLAIN, 25));
         title.setForeground(Color.CYAN);
         title.setBounds(120, 40, 600, 40);
-        jp.add(title,JLayeredPane.DRAG_LAYER);
+        jp.add(title, JLayeredPane.DRAG_LAYER);
 
         // 账号
         JLabel userLabel = new JLabel("账 号:");
         userLabel.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         userLabel.setForeground(Color.black);
         userLabel.setBounds(160, 120, 80, 30);
-        jp.add(userLabel,JLayeredPane.DRAG_LAYER);
+        jp.add(userLabel, JLayeredPane.DRAG_LAYER);
 
         // 账号文本框
         JTextField userText = new JTextField(15);
         userText.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         userText.setBounds(240, 120, 150, 30);
-        jp.add(userText,JLayeredPane.DRAG_LAYER);
+        jp.add(userText, JLayeredPane.DRAG_LAYER);
 
         // 密码
         JLabel pwdLabel = new JLabel("密 码:");
         pwdLabel.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         pwdLabel.setForeground(Color.black);
         pwdLabel.setBounds(160, 160, 80, 30);
-        jp.add(pwdLabel,JLayeredPane.DRAG_LAYER);
+        jp.add(pwdLabel, JLayeredPane.DRAG_LAYER);
 
         // 密码文本框
         JPasswordField pwdText = new JPasswordField(15);
         pwdText.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         pwdText.setBounds(240, 160, 150, 30);
-        jp.add(pwdText,JLayeredPane.DRAG_LAYER);
+        jp.add(pwdText, JLayeredPane.DRAG_LAYER);
 
         // 注册按钮
         JButton regButton = new JButton("注 册");
         regButton.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         regButton.setBounds(180, 250, 80, 30);
-        jp.add(regButton,JLayeredPane.DRAG_LAYER);
+        jp.add(regButton, JLayeredPane.DRAG_LAYER);
 
         // 登录按钮
         JButton loginButton = new JButton("登 录");
         loginButton.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         loginButton.setBounds(360, 250, 80, 30);
-        jp.add(loginButton,JLayeredPane.DRAG_LAYER);
+        jp.add(loginButton, JLayeredPane.DRAG_LAYER);
 
         frame.add(jp);
         frame.setVisible(true);
@@ -92,15 +92,16 @@ public class Welcome extends JFrame{
             String acResult = account1.username;
 
             // 判断密码是否与数据库一致
-            String pwInput = pwdText.getText();
+            String pwInput = new String(pwdText.getPassword());
             String pwResult = account1.password;
 
-            if(acInput.equals(acResult) && pwInput.equals(pwResult)){
+            if (acInput.equals(acResult) && pwInput.equals(pwResult)) {
                 //弹出成功登录的信息弹窗
                 new Notice("您已成功登录");
                 //为用户打开仓库列表
                 new WarehouseList();
-            } else{
+                frame.setState(Frame.ICONIFIED);
+            } else {
                 //登陆失败并弹窗提示
                 new Notice("账号或密码错误,请重新输入");
             }

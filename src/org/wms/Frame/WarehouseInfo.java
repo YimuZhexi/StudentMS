@@ -45,7 +45,7 @@ public class WarehouseInfo {
         title.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         title.setForeground(Color.black);
         title.setBounds(320, 20, 600, 30);
-        jp.add(title);
+        jp.add(title,JLayeredPane.DRAG_LAYER);
 
         // 在标题文本下方插入sql仓库详细数据
         // 创建表格(右侧详细信息)
@@ -84,14 +84,14 @@ public class WarehouseInfo {
         // 创建表格
         JTable jtInfo = new JTable(tmInfo);
         jtInfo.setRowHeight(30); // 设置行高
-        //table.setEnabled(false);
+        jtInfo.setEnabled(false);
         // 锁定列名无法拖动
         JTableHeader infoHeader = jtInfo.getTableHeader();
         infoHeader.setReorderingAllowed(false);
         // 设置表格参数
         JScrollPane infoSp = new JScrollPane(jtInfo);
-        infoSp.setBounds(30, 100, 740, 400);
-        jp.add(infoSp, JLayeredPane.MODAL_LAYER);
+        infoSp.setBounds(30, 70, 740, 400);
+        jp.add(infoSp, JLayeredPane.DRAG_LAYER);
 
         // 新建零件按钮
         JButton newPartButton = new JButton("新建零件");

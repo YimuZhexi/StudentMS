@@ -1,5 +1,8 @@
 package org.wms.database.data.dataType;
 
+/**
+ * 零件数据类
+ */
 public class TPart {
     /**
      * 零件名称

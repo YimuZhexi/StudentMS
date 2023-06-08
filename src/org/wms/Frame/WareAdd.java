@@ -81,16 +81,13 @@ public class WareAdd {
         jp.add(WarehouseAddressText,JLayeredPane.DRAG_LAYER);
 
         // 新建按钮
-        JButton newWareButton = new JButton("新建");
+        JButton newWareButton = new JButton("新建仓库");
         newWareButton.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         newWareButton.setBounds(100, 250, 250, 30);
         jp.add(newWareButton,JLayeredPane.DRAG_LAYER);
 
         // 点击已有账户
         newWareButton.addActionListener(e -> {
-            //TODO:
-            // 调用判断函数,判断成功则添加新仓库,并且 new Notice("新建成功") 进行弹窗
-            // 判断失败则 new Notice("新建失败,仓库编号和仓库名不能和已有仓库相同")
             String whAddress = WarehouseAddressText.getText();
             String whID = WarehouseIDText.getText();
             String whName = WarehouseNameText.getText();
@@ -114,13 +111,11 @@ public class WareAdd {
                 if (TF) {
                     WareAd.addWare(whID, whName, whAddress);
                     new Notice("仓库创建成功");
-                    frame.dispose();
-                    new WarehouseList();
                 }
             } else{
-                WareUP.UpbyID(whID,whName,whAddress);
-                new Notice("仓库创建失败");
+                new Notice("仓库创建失败，该仓库号已存在！您可以选择先删除该仓库。");
             }
+            frame.dispose();
         });
 
 

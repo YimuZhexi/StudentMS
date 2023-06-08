@@ -1,5 +1,8 @@
 package org.wms.database.data.dataType;
 
+/**
+ * 账户数据类
+ */
 public class TUserAccount {
     /**
      * 登录用户名
