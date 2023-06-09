@@ -34,7 +34,7 @@ public class WarehouseList {
         jp.setLayout(null);
 
         // 添加背景图片
-        ImageIcon img = new ImageIcon("images/3.png");//在此处输入图片路径
+        ImageIcon img = new ImageIcon("src/images/3.png");//在此处输入图片路径
         Image imgScaled = img.getImage().getScaledInstance(windowWidth, windowHeight, Image.SCALE_SMOOTH);
         JLabel label = new JLabel(new ImageIcon(imgScaled));
         label.setBounds(0, 0, windowWidth, windowHeight);
@@ -45,7 +45,7 @@ public class WarehouseList {
         title.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         title.setForeground(Color.black);
         title.setBounds(320, 20, 600, 30);
-        jp.add(title,JLayeredPane.DRAG_LAYER);
+        jp.add(title, JLayeredPane.DRAG_LAYER);
 
         // 创建表格(左侧仓库列表):
         // 获取数据库数据
@@ -97,13 +97,13 @@ public class WarehouseList {
         JButton newWareButton = new JButton("新建仓库");
         newWareButton.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         newWareButton.setBounds(200, 500, 120, 30);
-        jp.add(newWareButton,JLayeredPane.DRAG_LAYER);
+        jp.add(newWareButton, JLayeredPane.DRAG_LAYER);
 
         // 刷新按钮
         JButton refreshButton = new JButton("刷新");
         refreshButton.setFont(new Font("微软雅黑", Font.PLAIN, 10));
         refreshButton.setBounds(650, 30, 80, 30);
-        jp.add(refreshButton,JLayeredPane.DRAG_LAYER);
+        jp.add(refreshButton, JLayeredPane.DRAG_LAYER);
 
         // 点击新建仓库按钮
         newWareButton.addActionListener(e -> new WareAdd());
@@ -118,7 +118,7 @@ public class WarehouseList {
         JButton deleteWareButton = new JButton("删除仓库");
         deleteWareButton.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         deleteWareButton.setBounds(500, 500, 120, 30);
-        jp.add(deleteWareButton,JLayeredPane.DRAG_LAYER);
+        jp.add(deleteWareButton, JLayeredPane.DRAG_LAYER);
 
         // 点击删除仓库按钮
         deleteWareButton.addActionListener(e -> new WareDelete());

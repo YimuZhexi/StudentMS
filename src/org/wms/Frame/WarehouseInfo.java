@@ -34,7 +34,7 @@ public class WarehouseInfo {
         jp.setLayout(null);
 
         // 添加背景图片
-        ImageIcon img = new ImageIcon("images/3.png");//在此处输入图片路径
+        ImageIcon img = new ImageIcon("src/images/3.png");//在此处输入图片路径
         Image imgScaled = img.getImage().getScaledInstance(windowWidth, windowHeight, Image.SCALE_SMOOTH);
         JLabel label = new JLabel(new ImageIcon(imgScaled));
         label.setBounds(0, 0, windowWidth, windowHeight);
@@ -45,7 +45,7 @@ public class WarehouseInfo {
         title.setFont(new Font("微软雅黑", Font.PLAIN, 20));
         title.setForeground(Color.black);
         title.setBounds(320, 20, 600, 30);
-        jp.add(title,JLayeredPane.DRAG_LAYER);
+        jp.add(title, JLayeredPane.DRAG_LAYER);
 
         // 在标题文本下方插入sql仓库详细数据
         // 创建表格(右侧详细信息)

@@ -28,7 +28,7 @@ public class PartAdd {
         jp.setLayout(null);
 
         // 添加背景图片
-        ImageIcon img = new ImageIcon("images/4.png");//在此处输入图片路径
+        ImageIcon img = new ImageIcon("src/images/4.png");//在此处输入图片路径
         Image imgScaled = img.getImage().getScaledInstance(windowWidth, windowHeight, Image.SCALE_SMOOTH);
         JLabel label = new JLabel(new ImageIcon(imgScaled));
         label.setBounds(0, 0, windowWidth, windowHeight);
