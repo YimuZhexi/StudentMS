@@ -4,6 +4,9 @@ import org.wms.database.data.dataType.TPart;
 
 import java.util.ArrayList;
 
+/**
+ * 零件操作表接口
+ */
 public interface IPartDao {
     /**
      * 获取所有数据

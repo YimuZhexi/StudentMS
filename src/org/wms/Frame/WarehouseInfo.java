@@ -66,10 +66,7 @@ public class WarehouseInfo {
 
         // 添加数据到表格模型
 
-        /*分别传入仓库和零件编号*//*
-        WareID wareID1 = new WareID(wareID);*/
-
-
+        /*分别传入仓库和零件编号*/
         for (TPart warePart : parts) {
             if (warePart.partID != null) {
                 tmInfo.addRow(new Object[]{

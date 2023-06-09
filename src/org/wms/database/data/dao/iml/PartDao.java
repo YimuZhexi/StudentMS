@@ -130,11 +130,11 @@ public class PartDao implements IPartDao {
      * @return 数据符号>或<或=
      */
     private char GetEq(int eq) {
-        char s = '=';
+        char s;
         switch (eq) {
             case 1 -> s = '>';
-            case 0 -> s = '=';
             case -1 -> s = '<';
+            default -> s = '=';
         }
         return s;
     }

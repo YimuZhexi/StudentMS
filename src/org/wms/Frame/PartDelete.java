@@ -68,8 +68,8 @@ public class PartDelete {
             if (PartAD.havePartDelete(PartID)) {
                 PartAD.deletePart(PartID);
                 new Notice("删除成功");
+                frame.dispose();
             } else new Notice("删除失败，零件编号不存在");
-            frame.dispose();
         });
 
         frame.addWindowListener(new WindowAdapter() {
